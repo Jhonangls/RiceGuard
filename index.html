@@ -12,15 +12,39 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300" rel="stylesheet" type="text/css">
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
     <style>
-        .description p {
-            font-size: 16px;
+        body {
+            font-family: 'Open Sans', sans-serif;
         }
         .buttons a, .buttons button {
             margin-right: 10px;
             margin-top: 10px;
         }
-        
+        .modal-content {
+            background-color: #fff;
+            color: #222;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .modal-header .modal-title {
+            color: #111;
+            font-weight: 700;
+        }
+        .modal-header .close {
+            color: #28a745;
+            font-size: 28px;
+        }
+        .modal-body h4 {
+            color: #333;
+            margin-top: 20px;
+        }
+        @media (max-width: 767px) {
+            .row.align-items-center {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body class="landing-page landing-page1">
@@ -33,7 +57,7 @@
                         <div class="logo">
                             <img src="assets/img/rglogo.png" alt="Logo">
                         </div>
-                        <div class="brand">RiceGuard Mobile</div>
+                        <div class="brand">RiceGuard Ops</div>
                     </div>
                 </a>
             </div>
@@ -46,104 +70,115 @@
                 <img class="parallax-background-image" src="assets/img/gptimg.png" alt="Background">
             </div>
             <div class="container">
-                <div class="row align-items-center" style="min-height: 100vh; display: flex;">
-                    <div class="col-md-5 hidden-xs">
+                <div class="row align-items-center" style="min-height: 100vh; display: flex; flex-wrap: wrap; align-items: center;">
+                    
+                    <!-- Phone Image -->
+                    <div class="col-md-5 col-sm-12 text-center" style="order: 1;">
                         <div class="parallax-image">
-                            <img class="phone" src="assets/img/template/iphone3.png" alt="App Image" style="margin-top: 20px"/>
+                            <img class="phone img-responsive" src="assets/img/template/iphone3.png" alt="App Image"
+                                 style="margin: 20px auto; max-width: 100%; height: auto;" />
                         </div>
                     </div>
-                    <div class="col-md-6 col-md-offset-1">
+
+                    <!-- Text + Buttons -->
+                    <div class="col-md-6 col-md-offset-1 col-sm-12" style="order: 2;">
                         <div class="description">
                             <h2 style="
-    font-size: 42px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    color: #ffffff;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
-">
-    Download <span style="color:#00ff99;">RiceGuard</span> Mobile App
-</h2>
-
-                            <p><em>Available for iOS and Android.</em></p>
+                                font-size: 42px;
+                                font-weight: 800;
+                                letter-spacing: 1px;
+                                color: #ffffff;
+                                text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+                            ">
+                                Download <span style="color:#00ff99;">RiceGuard</span> Mobile App
+                            </h2>
+                            <p><em style="color:#fff;">Available for iOS and Android.</em></p>
                             <br>
-                            <p>Your rice disease detection companion. Stay informed and protect your crops using RiceGuard's smart technology.</p>
-                        </div>
-                        <div class="buttons">
-<a href="https://drive.google.com/file/d/1Rd_9rk4M94IHyAnfPIc22pruRpj_jg6e/view" class="btn btn-fill" style="
-    background: linear-gradient(135deg, #28a745, #218838);
-    color: white;
-    border: none;
-    border-radius: 30px;
-    padding: 12px 24px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-    font-weight: 600;
-    display: inline-block;
-    text-decoration: none;
-">
-    <i class="fa fa-android"></i> Android
-</a>
+                            <p style="color: #f0f0f0;">Your rice disease detection companion. Stay informed and protect your crops using RiceGuard's smart AI technology.</p>
 
+                            <div class="buttons">
+                                <!-- Android Button -->
+                                <a href="#android-download" class="btn btn-fill" style="
+                                    background: linear-gradient(135deg, #28a745, #218838);
+                                    color: white;
+                                    border: none;
+                                    border-radius: 30px;
+                                    padding: 12px 24px;
+                                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+                                    font-weight: 600;
+                                    text-decoration: none;
+                                    display: inline-block;
+                                ">
+                                    <i class="fa fa-android"></i> Android
+                                </a>
 
-  <a href="https://droopy-giraffe-sy8ulgjrf8.ploi.ing/login" class="btn btn-fill" style="
-        background: linear-gradient(135deg, #000000, #000000);
-        color: white;
-        border: none;
-        border-radius: 30px;
-        padding: 12px 24px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-        font-weight: 600;
-        display: inline-block;
-        text-decoration: none;
-    ">
-        <i class="fa fa-apple"></i> iOS
-    </a>
-                            <button class="btn btn-fill btn-info" data-toggle="modal" data-target="#installModal" style="border-radius: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); font-weight: 600;">
-    <i class="fa fa-info-circle"></i> How to Install
-</button>
+                                <!-- iOS Button -->
+                                <a href="#ios-download" class="btn btn-fill" style="
+                                    background: linear-gradient(135deg, #000000, #434343);
+                                    color: white;
+                                    border: none;
+                                    border-radius: 30px;
+                                    padding: 12px 24px;
+                                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+                                    font-weight: 600;
+                                    text-decoration: none;
+                                    display: inline-block;
+                                ">
+                                    <i class="fa fa-apple"></i> iOS
+                                </a>
 
+                                <!-- How to Install Button -->
+                                <button class="btn btn-fill btn-info" data-toggle="modal" data-target="#installModal" style="
+                                    border-radius: 30px;
+                                    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                                    font-weight: 600;
+                                ">
+                                    <i class="fa fa-info-circle"></i> How to Install
+                                </button>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
 
-   <!-- Modal -->
-<div class="modal fade" id="installModal" tabindex="-1" role="dialog" aria-labelledby="installModalLabel">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content" style="background-color: #f8f8f8;">
-            <div class="modal-header">
-<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #28a745;">
-    <span aria-hidden="true">&times;</span>
-</button>
+    <!-- Modal -->
+    <div class="modal fade" id="installModal" tabindex="-1" role="dialog" aria-labelledby="installModalLabel">
+        <div class="modal-dialog" role="document" style="margin-top: 10vh;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="installModalLabel">Installation Instructions</h4>
+                </div>
+                <div class="modal-body">
+                    <h4><strong>For Android:</strong></h4>
+                    <ol>
+                        <li>Tap the “Android” button.</li>
+                        <li>If redirected to Google Drive, tap the Download button.</li>
+                        <li>Once downloaded, open the APK file.</li>
+                        <li>Allow installation from unknown sources if prompted.</li>
+                        <li>Tap Install.</li>
+                        <li>Open the app when done.</li>
+                    </ol>
 
-                <h4 class="modal-title" id="installModalLabel">Installation Instructions</h4>
-            </div>
-            <div class="modal-body">
-                <h4><strong>For Android:</strong></h4>
-                <ol>
-                    <li>Tap the “Android” button.</li>
-                    <li>If redirected to Google Drive, tap the Download button.</li>
-                    <li>Once downloaded, open the APK file.</li>
-                    <li>Allow installation from unknown sources if prompted.</li>
-                    <li>Tap Install.</li>
-                    <li>Open the app when done.</li>
-                </ol>
-                <h4><strong>For iOS:</strong></h4>
-                <ol>
-                    <li>Tap the "iOS" button.</li>
-                    <li>Once redirected, tap the share icon (bottom center).</li>
-                    <li>Scroll down and tap "Add to Home Screen".</li>
-                    <li>The app will appear on your Home Screen.</li>
-                </ol>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-fill btn-info" data-dismiss="modal">Close</button>
+                    <h4><strong>For iOS:</strong></h4>
+                    <ol>
+                        <li>Tap the "iOS" button.</li>
+                        <li>Once redirected, tap the share icon (bottom center).</li>
+                        <li>Scroll down and tap "Add to Home Screen".</li>
+                        <li>The app will appear on your Home Screen.</li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-fill btn-success" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
 
     <!-- Scripts -->
     <script src="assets/js/jquery-1.10.2.js"></script>
